@@ -30,11 +30,15 @@
 <div id="videoContainer">
 	<video autoplay="true" id="videoElement">
 	
-	</video>
-</div>
-<div id="snapContainer">
+    </video>
+    <div id="snapContainer">
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+                Your browser does not support the HTML5 canvas tag.
+        </canvas>
 
+    </div>
 </div>
+
 
 <button onclick="start_video(video)">Start video</button>
 <button onclick="stop_video(video)">Stop video</button>
