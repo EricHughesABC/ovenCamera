@@ -11,12 +11,16 @@
 #videoContainer {
 	margin: 0px auto;
 	width: 80%;
-	height: 80%;
+	height: 40%;
+	border: 10px #333 solid;
+}
+#snapContainer {
+	margin: 0px auto;
+	width: 80%;
+	height: 40%;
 	border: 10px #333 solid;
 }
 #videoElement {
-	width: 100%;
-	height: 100%;
 	background-color: #666;
 }
 </style>
@@ -28,9 +32,13 @@
 	
 	</video>
 </div>
+<div id="snapContainer">
+
+</div>
 
 <button onclick="start_video(video)">Start video</button>
 <button onclick="stop_video(video)">Stop video</button>
+<button>Snap video</button>
 
 <script>
 var video = document.querySelector("#videoElement");
