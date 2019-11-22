@@ -23,26 +23,74 @@
 #videoElement {
 	background-color: #666;
 }
+
+/* Create two columns/boxes that floats next to each other */
+videobox {
+  float: left;
+  width: 100%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+
+
+snapbox {
+  float: left;
+  padding: 20px;
+  width: 100%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
 </style>
 </head>
  
 <body>
-<div id="videoContainer">
-	<video autoplay="true" id="videoElement">
-	
-    </video>
-    <div id="snapContainer">
+
+    <section>
+    <videobox>
+            <video autoplay="true" id="videoElement"></video>
+    </videobox>	
+    <snapbox>
         <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
                 Your browser does not support the HTML5 canvas tag.
         </canvas>
 
-    </div>
-</div>
+    </snapbox>
+</section>
+
+<footer>
+    <button onclick="start_video(video)">Start video</button>
+    <button onclick="stop_video(video)">Stop video</button>
+    <button>Snap video</button>
+</footer>
 
 
-<button onclick="start_video(video)">Start video</button>
-<button onclick="stop_video(video)">Stop video</button>
-<button>Snap video</button>
+
+
 
 <script>
 var video = document.querySelector("#videoElement");
