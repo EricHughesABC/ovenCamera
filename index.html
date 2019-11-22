@@ -29,19 +29,22 @@
 	</video>
 </div>
 
+<button onclick="start_video(video)">Start video</button>
 <button onclick="stop_video(video)">Stop video</button>
 
 <script>
 var video = document.querySelector("#videoElement");
 
-if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
+function start_video(e){
+    if (navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+        video.srcObject = stream;
+        })
+        .catch(function (err0r) {
+        console.log("Something went wrong!");
+        });
+    }
 }
 
 function stop_video(e) {
