@@ -2,29 +2,35 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Display Webcam Stream</title>
+<title>oven</title>
  
+<!-- This code has been directly taken from the website -->
+<!-- https://www.kirupa.com/html5/accessing_your_webcam_in_html5.htm -->
+
 <style>
-#container {
+#videoContainer {
 	margin: 0px auto;
-	width: 500px;
-	height: 375px;
+	width: 80%;
+	height: 80%;
 	border: 10px #333 solid;
 }
 #videoElement {
-	width: 500px;
-	height: 375px;
+	width: 100%;
+	height: 100%;
 	background-color: #666;
 }
 </style>
 </head>
  
 <body>
-<div id="container">
+<div id="videoContainer">
 	<video autoplay="true" id="videoElement">
 	
 	</video>
 </div>
+
+<button onclick="stop_video(video)">Stop video</button>
+
 <script>
 var video = document.querySelector("#videoElement");
 
@@ -38,7 +44,7 @@ if (navigator.mediaDevices.getUserMedia) {
     });
 }
 
-function stop(e) {
+function stop_video(e) {
   var stream = video.srcObject;
   var tracks = stream.getTracks();
 
